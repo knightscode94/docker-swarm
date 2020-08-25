@@ -1,6 +1,4 @@
 [docker-swarm-managers]
-10.10.10.10
-10.10.10.11
+vm-manager
 [docker-swarm]
-10.10.10.10
-10.10.10.11
+vm-swarm
