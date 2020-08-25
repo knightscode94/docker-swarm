@@ -20,20 +20,15 @@
     update_cache: yes
   with_items: "{{ packages}}"
 
-- name: Add  user to docker group
+- name: Add user
   user:
     name: "{{ ansible_user }}"
     group: "{{ docker_group }}"
 
-- name: Create docker service directory
+- name: Create docker service
   file:
     path: /etc/systemd/system/docker.service.d
     state: directory
   notify: 
     - restart docker
 
-- name: Ensure Docker is runnig 
-  service:
-    name: docker
-    state: started
-    enabled: yes
