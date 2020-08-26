@@ -119,14 +119,3 @@
         --token={{ token }}
         {{ groups['swarm_manager_ips'][0] }}:2377
 
-- hosts: docker-swarm
-  remote_user: ansible
-  become: true
-  gather_facts: false
-  tasks:
-    - name: Add cronjob for docker swarm cleanup
-      cron:
-        name: "Cleanup of old containers, volumes, networks and images"
-        minute: "0"
-        hour: "2"
-        job: "docker system prune -a -f --volumes"
